@@ -3,7 +3,6 @@
 
 namespace App\Entites;
 
-
 class Equipe {
     private string $nom;
     private int $nombreLikes;
