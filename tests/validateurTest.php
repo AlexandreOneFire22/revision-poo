@@ -24,7 +24,8 @@ class ValidateurTest extends TestCase{
         $this->assertTrue(true);
     }
 
-    public function testVerifierNombre2_NombrePositif_True() {
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function verifierNombre2_NombrePositif_True() {
 
         //Arrange
         //$validateur = new Validateur();
