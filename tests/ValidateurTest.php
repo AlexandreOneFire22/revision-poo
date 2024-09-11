@@ -52,7 +52,7 @@ class ValidateurTest extends TestCase{
         $nombre = -5;
 
         //Act
-        $resultat=$this->validateur->verifieNombre2($nombre);
+        $this->validateur->verifieNombre2($nombre);
 
         //Assert
 

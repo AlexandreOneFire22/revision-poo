@@ -3,6 +3,8 @@
 require_once "vendor/autoload.php";
 
 use App\Validateur;
+use App\Film;
+use App\Acteur;
 
 $validateur = new Validateur();
 
@@ -40,3 +42,43 @@ try {
     // Attraper l'exception lancée
     echo $e->getMessage();
 }
+
+
+
+
+
+
+
+$film1 = new Film("test","moi",\DateTime::createFromFormat("d/m/Y","1/09/2005"));
+
+
+
+$acteur = new Acteur("BOILEAU","Ethan");
+
+$film1->ajouterActeur($acteur);
+
+dump($film1->getActeurs());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

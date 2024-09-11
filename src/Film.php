@@ -1,12 +1,14 @@
 <?php
 
+namespace App;
+
 require_once("Acteur.php");
 
 class Film {
     // Attributs
     private string $titre;
     private string $realisateur;
-    private DateTime $dateSortie;
+    private \DateTime $dateSortie;
 
     private array $acteurs = [];
 
@@ -14,15 +16,20 @@ class Film {
     // Constructeur permettant de créer des instances d'une classe
     // INSTANCIATION
 
-    public function __construct(string $titre, string $realisateur, DateTime $dateSortie, array $acteurs=null){
+    public function __construct(string $titre, string $realisateur, \DateTime $dateSortie){
         $this->titre = $titre;
         $this->realisateur = $realisateur;
         $this->dateSortie = $dateSortie;
-        //$this->acteurs = [];
+
     }
     // Accesseurs (getters)
 
     public function ajouterActeur(Acteur $acteur): void{
+
+        if (in_array($acteur,$this->acteurs)) {
+            // Lancer une Exception.
+            throw new \Exception("L'acteur est déjà présent dans se Film.");
+        }
         $this->acteurs[] = $acteur;
     }
     public function getTitre():string{
@@ -46,7 +53,7 @@ class Film {
 
 
 
-    public function anciennete (){
+    public function getAnciennete (){
         $now = new DateTime();
         $interval = $now->diff($this->dateSortie);
         return $interval ->y;
